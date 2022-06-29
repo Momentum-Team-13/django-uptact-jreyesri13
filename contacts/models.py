@@ -26,7 +26,7 @@ class Contact(models.Model):
 class Note(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
-    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, null=True)
+    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, null=True, related_name="notes")
     # author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):

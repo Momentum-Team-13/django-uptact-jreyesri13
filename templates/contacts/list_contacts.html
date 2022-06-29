@@ -47,6 +47,29 @@
     </div>
     {% endif %}
 
+
+    {% if contact.notes.all %}
+    <div><strong>Notes:</strong></div>
+    {% for note in contact.notes.all %}
+    <div class="flex">
+      <div class="pr2"></div>
+      <div>{{ note }}</div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    <!-- {% if contact.notes.all %}
+    <div><strong>Notes:</strong></div>
+    {% for note in contact.notes.all %}
+    <div class="flex">
+      <div class="pr2"></div>
+      <div>{{ note.text }}</div>
+    </div>
+    {% endfor %}
+    {% endif %} -->
+
+
     <!-- Not Working! Is it because it's inside Contact for loop? -->
     <!-- {% if notes %}
     <div><strong>Notes:</strong></div>
