@@ -50,7 +50,8 @@ def delete_contact(request, pk):
 
 def view_contact(request, pk):
     contact = get_object_or_404(Contact, pk=pk)
-    return render(request, "contacts/view_contact.html", {"contact": contact})
+    notes = Note.objects.filter(contact=pk)
+    return render(request, "contacts/view_contact.html", {"contact": contact, "notes": notes})
 
 
 def add_contact_note(request, pk):
@@ -62,6 +63,7 @@ def add_contact_note(request, pk):
         if form.is_valid():
             new_note = form.save(commit=False)
             new_note.contact = contact
+            new_note.save()
             return redirect(to='view_contact', pk=pk)
 
     return render(request, "contacts/add_contact_note.html", {"form": form, "contact": contact})
