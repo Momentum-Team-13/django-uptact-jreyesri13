@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="flex flex-wrap">
+    <div class="w-33 pa3">
+        <h2><a href="{% url 'list_contacts' %}">Home</a></h2>
+    </div>
+</div>
+
+
 <div class="flex flex-wrap">
 
     <div class="w-33 pa3">
+
         <h2>{{ contact.name }}</h2>
 
         <div class="flex">
